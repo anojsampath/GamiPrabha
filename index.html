@@ -1,1 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gami Prabha — Eco-Agriculture & Eco-Tourism, Millaniya</title>
+<meta name="description" content="Gami Prabha grows and crafts value-added coconut, jackfruit, and cinnamon products from Millaniya, Sri Lanka, and opens the same land to eco-tourism.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest: #1F3327;
+    --forest-deep: #162319;
+    --paddy: #33513C;
+    --turmeric: #D9A441;
+    --turmeric-deep: #B9832F;
+    --cinnamon: #9A5F3C;
+    --cinnamon-deep: #6E4128;
+    --husk: #C9A876;
+    --parchment: #F3ECDC;
+    --parchment-dim: #E4DAC2;
+    --ink: #1A140F;
+    --line: rgba(243,236,220,0.16);
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--forest);
+    color:var(--parchment);
+    font-family:'Karla', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Alegreya', serif;
+    font-weight:700;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:0.2px;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--turmeric);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px; height:1px;
+    background:var(--turmeric);
+    display:inline-block;
+  }
+  :focus-visible{ outline:2px solid var(--turmeric); outline-offset:3px; }
+
+  /* ---------- weave divider (signature texture) ---------- */
+  .weave{
+    height:26px;
+    width:100%;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(243,236,220,0.22) 0 3px, transparent 3px 16px),
+      repeating-linear-gradient(-45deg, rgba(154,95,60,0.55) 0 3px, transparent 3px 16px);
+    background-color:var(--forest-deep);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(22,35,25,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    font-family:'Alegreya', serif;
+    font-weight:700;
+    font-size:22px;
+    letter-spacing:0.3px;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand small{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    color:var(--husk);
+    font-weight:400;
+    text-transform:uppercase;
+  }
+  nav.links{ display:flex; gap:30px; }
+  nav.links a{
+    font-size:14.5px;
+    text-decoration:none;
+    color:var(--parchment-dim);
+    transition:color .2s;
+  }
+  nav.links a:hover{ color:var(--turmeric); }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--parchment); font-size:26px; cursor:pointer; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 700px 400px at 85% 10%, rgba(217,164,65,0.16), transparent 60%),
+      radial-gradient(ellipse 500px 500px at 5% 90%, rgba(154,95,60,0.18), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(46px, 6.4vw, 78px);
+    color:var(--parchment);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--turmeric);
+  }
+  .hero .tagline{
+    font-family:'Alegreya', serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--husk);
+    margin-top:14px;
+  }
+  .hero p.lede{
+    margin-top:22px;
+    max-width:46ch;
+    color:var(--parchment-dim);
+    font-size:17px;
+  }
+  .cta-row{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px;
+    border-radius:3px;
+    font-size:14.5px; font-weight:600;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    font-family:'Karla', sans-serif;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--turmeric); color:var(--ink); }
+  .btn-primary:hover{ background:var(--turmeric-deep); }
+  .btn-ghost{ border-color:rgba(243,236,220,0.35); color:var(--parchment); }
+  .btn-ghost:hover{ border-color:var(--turmeric); color:var(--turmeric); }
+
+  /* stamp — signature element */
+  .stamp{
+    width:168px; height:168px;
+    border:2px solid var(--turmeric);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    transform:rotate(-9deg);
+    justify-self:end;
+    position:relative;
+    color:var(--turmeric);
+  }
+  .stamp::before{
+    content:"";
+    position:absolute; inset:9px;
+    border:1px dashed rgba(217,164,65,0.55);
+    border-radius:50%;
+  }
+  .stamp-text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    line-height:1.7;
+  }
+  .stamp-text strong{
+    display:block;
+    font-family:'Alegreya', serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:0.02em;
+    color:var(--parchment);
+    margin-bottom:2px;
+  }
+
+  /* ---------- sections ---------- */
+  section{ padding:90px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:14px; }
+  .section-head p{ color:var(--parchment-dim); margin-top:16px; font-size:16.5px; }
+
+  .band-alt{ background:var(--paddy); }
+
+  /* about */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-grid p{ color:var(--parchment-dim); margin:0 0 16px; }
+  .stat-row{ display:flex; gap:36px; margin-top:32px; flex-wrap:wrap; }
+  .stat{ border-left:2px solid var(--turmeric); padding-left:14px; }
+  .stat b{ display:block; font-family:'Alegreya', serif; font-size:30px; color:var(--parchment); }
+  .stat span{ font-size:13px; color:var(--husk); font-family:'JetBrains Mono', monospace; letter-spacing:0.04em; }
+
+  /* products */
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+  }
+  .product-card{
+    background:var(--forest-deep);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:32px 28px 28px;
+    position:relative;
+    overflow:hidden;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .product-card:hover{ transform:translateY(-6px); border-color:var(--accent, var(--turmeric)); }
+  .product-card .icon{
+    width:52px; height:52px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+    background:color-mix(in srgb, var(--accent) 22%, transparent);
+    border:1px solid var(--accent);
+  }
+  .product-card h3{ font-size:24px; color:var(--parchment); margin-bottom:10px; }
+  .product-card p{ color:var(--parchment-dim); font-size:15.5px; margin:0 0 18px;}
+  .product-card ul{ margin:0; padding:0; list-style:none; }
+  .product-card li{
+    font-size:14px; color:var(--husk);
+    padding:6px 0; border-top:1px solid var(--line);
+  }
+  .mini-stamp{
+    position:absolute; top:20px; right:20px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:9px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:50%;
+    width:54px; height:54px;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    transform:rotate(8deg);
+    opacity:0.85;
+    line-height:1.3;
+  }
+  .coconut{ --accent: var(--husk); }
+  .jackfruit{ --accent: var(--turmeric); }
+  .cinnamon-card{ --accent: var(--cinnamon); }
+
+  /* eco tourism */
+  .tour-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+  .tour-item{
+    display:flex; gap:18px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .tour-item:nth-child(3), .tour-item:nth-child(4){ border-bottom:1px solid var(--line); }
+  .tour-item .mark{
+    font-family:'Alegreya', serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--turmeric);
+    min-width:34px;
+  }
+  .tour-item h4{ font-size:18px; color:var(--parchment); margin-bottom:6px; }
+  .tour-item p{ color:var(--parchment-dim); font-size:15px; margin:0; }
+
+  /* innovation */
+  .innov-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .innov-card{
+    padding:26px 20px;
+    background:rgba(243,236,220,0.05);
+    border-radius:6px;
+    border-top:2px solid var(--turmeric);
+  }
+  .innov-card h4{ font-size:17px; color:var(--parchment); margin-bottom:8px; }
+  .innov-card p{ font-size:14.5px; color:var(--parchment-dim); margin:0; }
+
+  /* location */
+  .loc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+  }
+  .map-box{
+    aspect-ratio:4/3;
+    border-radius:6px;
+    background:var(--forest-deep);
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .map-box svg{ width:100%; height:100%; }
+  .loc-list{ list-style:none; margin:24px 0 0; padding:0; }
+  .loc-list li{
+    display:flex; gap:12px;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+    color:var(--parchment-dim);
+    font-size:15px;
+  }
+  .loc-list b{ color:var(--parchment); min-width:110px; display:inline-block; }
+
+  /* contact */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+  .field{ margin-bottom:18px; }
+  .field label{
+    display:block; font-family:'JetBrains Mono', monospace;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--husk); margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:rgba(243,236,220,0.06);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:12px 14px;
+    color:var(--parchment);
+    font-family:'Karla', sans-serif;
+    font-size:15px;
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--turmeric); }
+  .contact-info h3{ font-size:26px; color:var(--parchment); margin-bottom:16px; }
+  .contact-info p{ color:var(--parchment-dim); margin-bottom:26px; }
+  .contact-info .row{ display:flex; gap:14px; margin-bottom:14px; font-size:15px; }
+  .contact-info .row b{ color:var(--husk); font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.06em; min-width:80px; text-transform:uppercase; }
+
+  footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+    background:var(--forest-deep);
+  }
+  .foot-row{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:12px;
+  }
+  .foot-row p{ margin:0; color:var(--husk); font-size:13px; font-family:'JetBrains Mono', monospace; }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:920px){
+    .hero-grid, .about-grid, .loc-grid, .contact-grid{ grid-template-columns:1fr; }
+    .stamp{ justify-self:start; margin-top:30px; }
+    .product-grid{ grid-template-columns:1fr; }
+    .tour-grid{ grid-template-columns:1fr; }
+    .innov-grid{ grid-template-columns:1fr 1fr; }
+    nav.links{
+      position:fixed; top:65px; left:0; right:0;
+      background:var(--forest-deep);
+      flex-direction:column;
+      padding:20px 28px;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-130%);
+      transition:transform .25s ease;
+    }
+    nav.links.open{ transform:translateY(0); }
+    .nav-toggle{ display:block; }
+  }
+  @media (max-width:560px){
+    .innov-grid{ grid-template-columns:1fr; }
+    section{ padding:64px 0; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ transition:none; opacity:1; transform:none; }
+    .btn:hover, .product-card:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Gami Prabha <small>Millaniya</small></div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#tourism">Eco-Tourism</a>
+      <a href="#innovation">Innovation</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Millaniya · Kalutara District · Sri Lanka</div>
+      <h1>Gami Prabha<br><em>the village, in light</em></h1>
+      <p class="tagline">Grown in the soil. Made by hand. Shared with the world.</p>
+      <p class="lede">A new venture turning Millaniya's coconut groves, jackfruit trees, and cinnamon lands into value-added food products — and opening the same land to travellers who want to see, taste, and understand how it's grown.</p>
+      <div class="cta-row">
+        <a href="#products" class="btn btn-primary">See our products</a>
+        <a href="#tourism" class="btn btn-ghost">Visit the farm</a>
+      </div>
+    </div>
+    <div class="stamp">
+      <div class="stamp-text"><strong>Est. 2026</strong>Gami Prabha<br>Eco Agri &amp; Tourism<br>Millaniya, LK</div>
+    </div>
+  </div>
+</section>
+<div class="weave"></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">Who we are</div>
+      <h2 class="reveal">A village-rooted start, built in stages</h2>
+    </div>
+    <div class="reveal">
+      <p>Gami Prabha is a private Sri Lankan company beginning operations in Millaniya with a simple premise: the same coconut, jackfruit, and cinnamon that have grown here for generations can become higher-value food products — and the process of growing and making them is itself worth showing to visitors.</p>
+      <p>Our first stage is deliberately focused: build small-batch processing capability for three crops, open a working eco-tourism trail through the land that produces them, and prove a model that pays farmers fairly while keeping cultivation organic and low-impact.</p>
+      <div class="stat-row">
+        <div class="stat"><b>03</b><span>Core crops</span></div>
+        <div class="stat"><b>01</b><span>Village, Millaniya</span></div>
+        <div class="stat"><b>Stage 1</b><span>Currently building</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="band-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we make</div>
+      <h2>Three crops, carried further</h2>
+      <p>Each product line starts with fruit grown within Millaniya, processed close to the source, and sold as a finished good rather than raw produce — keeping more of the value in the village.</p>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card coconut">
+        <div class="mini-stamp">Coconut<br>G.P.</div>
+        <div class="icon">🥥</div>
+        <h3>Coconut</h3>
+        <p>Cold-pressed and dried products from husk to kernel, with nothing sent to waste.</p>
+        <ul>
+          <li>Virgin coconut oil, cold-pressed</li>
+          <li>Coconut flour &amp; crisp chips</li>
+          <li>Coconut treacle &amp; jaggery</li>
+          <li>Husk-fibre craft &amp; garden fibre</li>
+        </ul>
+      </div>
+
+      <div class="product-card jackfruit">
+        <div class="mini-stamp">Jackfruit<br>G.P.</div>
+        <div class="icon">🍈</div>
+        <h3>Jackfruit</h3>
+        <p>Seasonal jackfruit turned into shelf-stable and plant-protein products.</p>
+        <ul>
+          <li>Solar-dried jackfruit chips</li>
+          <li>Young-jack "meat" for cooking</li>
+          <li>Jackfruit seed flour</li>
+          <li>Jackfruit preserve &amp; jam</li>
+        </ul>
+      </div>
+
+      <div class="product-card cinnamon-card">
+        <div class="mini-stamp">Cinnamon<br>G.P.</div>
+        <div class="icon">🌿</div>
+        <h3>Cinnamon</h3>
+        <p>Hand-rolled quills processed the traditional way, with export-grade grading.</p>
+        <ul>
+          <li>Hand-rolled cinnamon quills</li>
+          <li>Ground cinnamon powder</li>
+          <li>Cinnamon leaf oil</li>
+          <li>Cinnamon bark tea</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tourism">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Eco-tourism</div>
+      <h2>Walk the land that grows what you eat</h2>
+      <p>A working farm trail through Millaniya — built around the same coconut, jackfruit, and cinnamon lands behind our products, run at a pace that keeps the visitor footprint light.</p>
+    </div>
+    <div class="tour-grid">
+      <div class="tour-item">
+        <div class="mark">＊</div>
+        <div><h4>Guided cultivation walk</h4><p>See coconut, jackfruit, and cinnamon growing side by side, with a village guide explaining how each is tended and harvested.</p></div>
+      </div>
+      <div class="tour-item">
+        <div class="mark">＊</div>
+        <div><h4>Hands-on processing</h4><p>Peel cinnamon bark, husk a coconut, or help dry jackfruit chips alongside the people who do it daily.</p></div>
+      </div>
+      <div class="tour-item">
+        <div class="mark">＊</div>
+        <div><h4>Farm-table meals</h4><p>Home-style meals cooked from what's harvested that morning, served in the village rather than a resort dining room.</p></div>
+      </div>
+      <div class="tour-item">
+        <div class="mark">＊</div>
+        <div><h4>Stay with the village</h4><p>Simple stays with host families in Millaniya, built to keep tourism income inside the community.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="innovation" class="band-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How we work</div>
+      <h2>Innovation built for a small first stage</h2>
+      <p>Every method below is chosen because it works at small-batch scale, not because it looks impressive — this is a first-stage company, and the approach reflects that.</p>
+    </div>
+    <div class="innov-grid">
+      <div class="innov-card">
+        <h4>Solar drying</h4>
+        <p>Low-energy drying for jackfruit and coconut, cutting fuel cost and preserving flavour better than open flame.</p>
+      </div>
+      <div class="innov-card">
+        <h4>Nothing wasted</h4>
+        <p>Coconut husk and shell become fibre, craft material, and biochar rather than field waste.</p>
+      </div>
+      <div class="innov-card">
+        <h4>Outgrower model</h4>
+        <p>Neighbouring smallholders supply raw crop under a fair, published pricing arrangement.</p>
+      </div>
+      <div class="innov-card">
+        <h4>Organic cultivation</h4>
+        <p>No synthetic pesticide use on land supplying our product lines, verified by our own field checks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap loc-grid">
+    <div>
+      <div class="map-box">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" fill="#162319"/>
+          <path d="M0 210 C 80 180, 140 230, 220 200 S 340 150, 400 190 L400 300 L0 300 Z" fill="#33513C"/>
+          <path d="M0 250 C 100 230, 180 270, 260 240 S 360 210, 400 240 L400 300 L0 300 Z" fill="#2A4433"/>
+          <circle cx="205" cy="150" r="7" fill="#D9A441"/>
+          <circle cx="205" cy="150" r="14" fill="none" stroke="#D9A441" stroke-width="1.5" opacity="0.6"/>
+          <text x="205" y="128" text-anchor="middle" fill="#F3ECDC" font-family="Alegreya, serif" font-size="16" font-style="italic">Millaniya</text>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Find us</div>
+      <h2 class="reveal" style="margin-top:14px;">Rooted in Millaniya</h2>
+      <p style="color:var(--parchment-dim); margin-top:16px;">Millaniya sits in the Kalutara District of Sri Lanka's Western Province — coconut and cinnamon country, close enough to the coast for easy visitor access, far enough inland to stay quiet.</p>
+      <ul class="loc-list">
+        <li><b>Region</b> Kalutara District, Western Province</li>
+        <li><b>Nearest town</b> Horana / Kalutara</li>
+        <li><b>Access</b> By road from Colombo, approx. 1.5–2 hrs</li>
+        <li><b>Terrain</b> Lowland wet zone — coconut, jackfruit, cinnamon</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="band-alt">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow">Get in touch</div>
+      <h3 style="margin-top:14px;">Talk to Gami Prabha</h3>
+      <p>Whether you're a buyer interested in our products, a traveller planning a visit, or a farmer in Millaniya interested in the outgrower programme — reach out.</p>
+      <div class="row"><b>Location</b><span>Millaniya, Kalutara District, Sri Lanka</span></div>
+      <div class="row"><b>Email</b><span>hello@gamiprabha.lk</span></div>
+      <div class="row"><b>Phone</b><span>+94 XX XXX XXXX</span></div>
+      <div class="row"><b>Stage</b><span>Stage 1 — now onboarding early buyers &amp; visitors</span></div>
+    </div>
+    <form onsubmit="event.preventDefault(); this.reset(); document.getElementById('formNote').textContent='Thank you — we will reply by email soon.';">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="topic">I'm interested in</label>
+        <input id="topic" type="text" placeholder="Products, a farm visit, becoming a supplier...">
+      </div>
+      <div class="field">
+        <label for="msg">Message</label>
+        <textarea id="msg" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+      <p id="formNote" style="margin-top:14px; font-size:13.5px; color:var(--husk);"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>© 2026 GAMI PRABHA (PVT) LTD · MILLANIYA, SRI LANKA</p>
+    <p>ECO AGRICULTURE · ECO TOURISM · STAGE 1</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('nav.links a').forEach(a=>{
+    a.addEventListener('click', ()=> document.querySelector('nav.links').classList.remove('open'));
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
 
